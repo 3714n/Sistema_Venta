@@ -1,0 +1,11 @@
+logica\Producto.class
+com\systemtravel\sistemaventa\resources\JakartaEE10Resource.class
+logica\Usuario.class
+logica\Costos.class
+logica\Categoria.class
+logica\Cliente.class
+com\systemtravel\sistemaventa\JakartaRestConfiguration.class
+logica\CabeceraVenta.class
+logica\DetallesVenta.class
+logica\Gastos.class
+logica\Vendedor.class
