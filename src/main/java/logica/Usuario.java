@@ -8,10 +8,10 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 import java.io.Serializable;
 
-@Entity
+//@Entity
 public class Usuario implements Serializable {
     
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idUsuario;
     private String nombreUsuario;
@@ -71,7 +71,7 @@ public class Usuario implements Serializable {
         this.vendedor = vendedor;
     }
 
-    
+    */
     
        
 }

@@ -10,10 +10,11 @@ import jakarta.persistence.EntityManagerFactory;
 import java.io.Serializable;
 import jakarta.persistence.Query;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
+import jakarta.persistence.spi.PersistenceProvider;
 import java.util.List;
-import logica.Categoria;
 import logica.Producto;
 
 /**
@@ -21,14 +22,19 @@ import logica.Producto;
  * @author 3714N
  */
 public class ProductoJpaController implements Serializable {
+    private EntityManagerFactory emf;
 
     public ProductoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
     }
-    private EntityManagerFactory emf = null;
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
+
+    }
+
+    public ProductoJpaController() {
+        emf = Persistence.createEntityManagerFactory("sistemaVentaPu");
     }
 
     public void create(Producto producto) {
@@ -36,16 +42,7 @@ public class ProductoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Categoria prod = producto.getProd();
-            if (prod != null) {
-                prod = em.getReference(prod.getClass(), prod.getIdCategoria());
-                producto.setProd(prod);
-            }
             em.persist(producto);
-            if (prod != null) {
-                prod.getProducto().add(producto);
-                prod = em.merge(prod);
-            }
             em.getTransaction().commit();
         } finally {
             if (em != null) {
@@ -59,22 +56,7 @@ public class ProductoJpaController implements Serializable {
         try {
             em = getEntityManager();
             em.getTransaction().begin();
-            Producto persistentProducto = em.find(Producto.class, producto.getIdProducto());
-            Categoria prodOld = persistentProducto.getProd();
-            Categoria prodNew = producto.getProd();
-            if (prodNew != null) {
-                prodNew = em.getReference(prodNew.getClass(), prodNew.getIdCategoria());
-                producto.setProd(prodNew);
-            }
             producto = em.merge(producto);
-            if (prodOld != null && !prodOld.equals(prodNew)) {
-                prodOld.getProducto().remove(producto);
-                prodOld = em.merge(prodOld);
-            }
-            if (prodNew != null && !prodNew.equals(prodOld)) {
-                prodNew.getProducto().add(producto);
-                prodNew = em.merge(prodNew);
-            }
             em.getTransaction().commit();
         } catch (Exception ex) {
             String msg = ex.getLocalizedMessage();
@@ -103,11 +85,6 @@ public class ProductoJpaController implements Serializable {
                 producto.getIdProducto();
             } catch (EntityNotFoundException enfe) {
                 throw new NonexistentEntityException("The producto with id " + id + " no longer exists.", enfe);
-            }
-            Categoria prod = producto.getProd();
-            if (prod != null) {
-                prod.getProducto().remove(producto);
-                prod = em.merge(prod);
             }
             em.remove(producto);
             em.getTransaction().commit();

@@ -9,9 +9,9 @@ import jakarta.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
 
-@Entity
+//@Entity
 public class Categoria implements Serializable {
-@Id
+/*@Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
 private int idCategoria;
 private String descripcion;
@@ -59,7 +59,7 @@ private int estado;
 
     public void setEstado(int estado) {
         this.estado = estado;
-    }
+    }*/
 
 
 }

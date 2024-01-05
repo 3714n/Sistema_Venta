@@ -11,9 +11,9 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import java.io.Serializable;
 import java.util.Date;
-@Entity
+//@Entity
 public class CabeceraVenta implements Serializable {
-    @Id
+   /* @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idCabeceraVenta;
     private double valorPagar;
@@ -73,6 +73,6 @@ public class CabeceraVenta implements Serializable {
 
     public void setEstado(int estado) {
         this.estado = estado;
-    }
+    }*/
     
 }

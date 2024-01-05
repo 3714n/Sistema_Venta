@@ -20,27 +20,23 @@ public class Producto implements Serializable {
     private int cantidad;
     private double precio;
     private String descripcion;
-    private double porcentajeIva;
-    @ManyToOne
-    @JoinColumn(name="Producto_Id")
-    private Categoria prod;
-    @ManyToMany(mappedBy = "productos")
-    private List<DetallesVenta> detallesVentas;
-    private int estado;
+    //private double porcentajeIva;
+   // @ManyToOne
+    //@JoinColumn(name="Producto_Id")
+    //private Categoria prod;
+    //@ManyToMany(mappedBy = "productos")
+    //private List<DetallesVenta> detallesVentas;
+    //private int estado;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombre, int cantidad, double precio, String descripcion, double porcentajeIva, Categoria prod, List<DetallesVenta> detallesVentas, int estado) {
+    public Producto(int idProducto, String nombre, int cantidad, double precio, String descripcion) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
         this.descripcion = descripcion;
-        this.porcentajeIva = porcentajeIva;
-        this.prod = prod;
-        this.detallesVentas = detallesVentas;
-        this.estado = estado;
     }
 
     public int getIdProducto() {
@@ -83,37 +79,4 @@ public class Producto implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public double getPorcentajeIva() {
-        return porcentajeIva;
-    }
-
-    public void setPorcentajeIva(double porcentajeIva) {
-        this.porcentajeIva = porcentajeIva;
-    }
-
-    public Categoria getProd() {
-        return prod;
-    }
-
-    public void setProd(Categoria prod) {
-        this.prod = prod;
-    }
-
-    public List<DetallesVenta> getDetallesVentas() {
-        return detallesVentas;
-    }
-
-    public void setDetallesVentas(List<DetallesVenta> detallesVentas) {
-        this.detallesVentas = detallesVentas;
-    }
-
-    public int getEstado() {
-        return estado;
-    }
-
-    public void setEstado(int estado) {
-        this.estado = estado;
-    }
-    
-   
 }
