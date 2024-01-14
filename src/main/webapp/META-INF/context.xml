@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/sistemaVenta"/>
+<Context path="/sistemaVenta">
+  <WatchedResource>WEB-INF/web.xml</WatchedResource>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+</Context>

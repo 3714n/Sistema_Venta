@@ -13,7 +13,6 @@ import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Root;
-import jakarta.persistence.spi.PersistenceProvider;
 import java.util.List;
 import logica.Producto;
 
@@ -22,7 +21,8 @@ import logica.Producto;
  * @author 3714N
  */
 public class ProductoJpaController implements Serializable {
-    private EntityManagerFactory emf;
+
+    private EntityManagerFactory emf = null;
 
     public ProductoJpaController(EntityManagerFactory emf) {
         this.emf = emf;
@@ -30,7 +30,6 @@ public class ProductoJpaController implements Serializable {
 
     public EntityManager getEntityManager() {
         return emf.createEntityManager();
-
     }
 
     public ProductoJpaController() {

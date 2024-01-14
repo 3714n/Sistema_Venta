@@ -9,9 +9,9 @@ import jakarta.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Cliente implements Serializable {
-   /* @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idCliente;
     private String nombre;
@@ -99,6 +99,6 @@ public class Cliente implements Serializable {
 
     public void setEstado(int Estado) {
         this.Estado = Estado;
-    }*/
+    }
     
 }

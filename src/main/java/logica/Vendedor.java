@@ -10,10 +10,10 @@ import jakarta.persistence.OneToOne;
 import java.io.Serializable;
 import java.util.List;
 
-//@Entity
+@Entity
 public class Vendedor implements Serializable {
 
-/*@Id
+@Id
 @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private int idVendedor;
     @OneToOne
@@ -64,6 +64,6 @@ public class Vendedor implements Serializable {
         this.Estado = Estado;
     }
 
-   */
-    
+   
+   
 }

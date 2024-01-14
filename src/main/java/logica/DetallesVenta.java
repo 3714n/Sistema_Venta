@@ -14,9 +14,9 @@ import jakarta.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.List;
 
-//@Entity
+@Entity
 public class DetallesVenta implements Serializable {
-  /*  @Id
+    @Id
     @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int idDetallesVenta;
     private double precioUnitario;
@@ -133,7 +133,7 @@ public class DetallesVenta implements Serializable {
     public void setProducto(List<Producto> producto) {
         this.producto = producto;
     }
-    */
+    
     
             
 }

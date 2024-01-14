@@ -63,7 +63,7 @@
                         <a class="collapse-item" href="crearProductos.jsp">Crear producto</a>
                         <a class="collapse-item" href="ListaProducto.jsp">Productos</a>
                         <a class="collapse-item" href="utilities-animation.html">Actualizar stock</a>
-                        <a class="collapse-item" href="utilities-other.html">Categoria</a>
+                        <a class="collapse-item" href="CrearCategoria.jsp">Categoria</a>
                     </div>
                 </div>
             </li>

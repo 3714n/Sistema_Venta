@@ -13,13 +13,14 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URL;
-import logica.controladoraLogica;
+import logica.ControladoraLogica;
+import logica.ControladoraLogica;
 
 
 @WebServlet(name = "SvProducto", urlPatterns = {"/SvProducto"})
 public class SvProducto extends HttpServlet {
 
-    controladoraLogica contaLogica = new controladoraLogica();
+    ControladoraLogica controLogica = new ControladoraLogica();
     
    
      
@@ -44,12 +45,16 @@ public class SvProducto extends HttpServlet {
         
         String nombreProducto = request.getParameter("nombreProducto");
         String cantidadProducto = request.getParameter("cantidadProducto");
-        int convertedNumber = Integer.parseInt( cantidadProducto);
+        int convertirCatidad = Integer.parseInt( cantidadProducto);
         String precioProducto = request.getParameter("precioProducto");
-         double convertedDouble = Double.parseDouble(precioProducto);
+         double convertirPrecio = Double.parseDouble(precioProducto);
         String descripcionProducto = request.getParameter("descripcionProducto");
+        String cargarImagenProducto = request.getParameter("cargarImagenProducto");
+        String costoProducto = request.getParameter("costoProducto");
+        double convertidocostoProducto = Double.parseDouble(costoProducto);
+        String categoria = request.getParameter("cotegoriaProducto");
         
-        contaLogica.crearProducto(nombreProducto, convertedNumber, convertedDouble, descripcionProducto);
+        //controLogica.crearProducto(nombreProducto, convertirCatidad, convertirPrecio, descripcionProducto,cargarImagenProducto, convertidocostoProducto, categoria);
         
          }
 

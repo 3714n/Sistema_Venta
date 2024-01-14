@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import java.io.Serializable;
 import java.util.List;
 
@@ -19,24 +20,28 @@ public class Producto implements Serializable {
     private String nombre;
     private int cantidad;
     private double precio;
+    private double costo;
     private String descripcion;
-    //private double porcentajeIva;
-   // @ManyToOne
-    //@JoinColumn(name="Producto_Id")
-    //private Categoria prod;
-    //@ManyToMany(mappedBy = "productos")
-    //private List<DetallesVenta> detallesVentas;
-    //private int estado;
+    private String imagen;
+    @OneToMany
+    private List<Categoria> listascategoria;
+    /*@ManyToMany(mappedBy = "productos")
+    private List<DetallesVenta> detallesVentas;*/
+    private int estado;
 
     public Producto() {
     }
 
-    public Producto(int idProducto, String nombre, int cantidad, double precio, String descripcion) {
+    public Producto(int idProducto, String nombre, int cantidad, double precio, double costo, String descripcion, String imagen, List<Categoria> listascategoria, int estado) {
         this.idProducto = idProducto;
         this.nombre = nombre;
         this.cantidad = cantidad;
         this.precio = precio;
+        this.costo = costo;
         this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.listascategoria = listascategoria;
+        this.estado = estado;
     }
 
     public int getIdProducto() {
@@ -71,6 +76,14 @@ public class Producto implements Serializable {
         this.precio = precio;
     }
 
+    public double getCosto() {
+        return costo;
+    }
+
+    public void setCosto(double costo) {
+        this.costo = costo;
+    }
+
     public String getDescripcion() {
         return descripcion;
     }
@@ -78,5 +91,30 @@ public class Producto implements Serializable {
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
     }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public List<Categoria> getListascategoria() {
+        return listascategoria;
+    }
+
+    public void setListascategoria(List<Categoria> listascategoria) {
+        this.listascategoria = listascategoria;
+    }
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
+    }
+    
 
 }
