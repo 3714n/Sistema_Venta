@@ -14,29 +14,29 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Nuevo Producto</h1>
                                     </div>
-                                    <form class="user" action="SvProducto" method="POST">
+                                    <form class="user" action="SvProducto" method="POST" enctype="multipart/form-data">
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-control-user" id="nombreProducto"
+                                                <input type="text" class="form-control form-control-user" id="nombreProducto" name="nombreProducto"
                                                     placeholder="Nombre">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="number" class="form-control form-control-user" id="cantidadProducto"
+                                                <input type="number" class="form-control form-control-user" id="cantidadProducto" name="cantidadProducto"
                                                     placeholder="Cantidad">
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
-                                                <input type="text" class="form-control form-control-user" id="precioProducto"
+                                                <input type="text" class="form-control form-control-user" id="precioProducto" name="precioProducto"
                                                     placeholder="Precio" pattern="^\d+(\.\d{1,2})?$">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control form-control-user" id="descripcionProducto"
+                                                <input type="text" class="form-control form-control-user" id="descripcionProducto" name="descripcionProducto"
                                                     placeholder="Descripcion" >
                                             </div>
                                             <div class="mb-3 mt-3 ml-3">
                                                 <label for="formFile" class="form-label">Cargar imagen</label>
-                                                <input class="form-control" type="file" id="cargarImagenProducto">
+                                                <input class="form-control" type="file" id="cargarImagenProducto" name="cargarImagenProducto">
                                               </div>
         
                                         </div>
@@ -44,7 +44,7 @@
                                         <div class="form-group row">
                                             <div class="col-sm-6 mb-3 mb-sm-0">
                                                 <input type="text" class="form-control form-control-user"
-                                                    id="costoProducto" placeholder="Costo">
+                                                    id="costoProducto" name="costoProducto" placeholder="Costo">
                                             </div>
                                             <div class="col-sm-6">
                                                 <select class="form-control form-control-user" id="categoriaProducto">
